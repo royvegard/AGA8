@@ -25,14 +25,76 @@ const GAS_002: [f64; 21] = [
 ];
 
 const GAS_012: [f64; 21] = [
-0.981_106_02,0.008_133_99,0.001_209,0.006_111_99,0.002_153,
-0.000_339,0.000_453,0.000_115,0.000_092_5,0.000_06,0.000_061,
-0.000_028,0.000_003,0.000_000_5,0.0,0.0,0.0,0.0,0.0,0.000_134,0.0];
+    0.981_106_02, // Methane
+    0.008_133_99, // Nitrogen
+    0.001_209,    // Carbon dioxide
+    0.006_111_99, // Ethane
+    0.002_153,    // Propane
+    0.000_339,    // Isobutane
+    0.000_453,    // n-Butane
+    0.000_115,    // Isopentane
+    0.000_092_5,  // n-Pentane
+    0.000_06,     // Hexane
+    0.000_061,    // Heptane
+    0.000_028,    // Octane
+    0.000_003,    // Nonane
+    0.000_000_5,  // Decane
+    0.0,          // Hydrogen
+    0.0,          // Oxygen
+    0.0,          // Carbon monoxide
+    0.0,          // Water
+    0.0,          // Hydrogen sulfide
+    0.000_134,    // Helium
+    0.0           // Argon
+];
 
-// const GAS_073: [f64; 21] = [
-// 0.919_684_8,0.010_54,0.011_19,0.045_62,0.008,0.000_96,0.001_58,
-// 0.000_44,0.000_36,0.000_347,0.000_238,0.000_127,0.000_033_6,
-// 0.000_009_6,0.000_46,0.000_01,0.0,0.0,0.0,0.000_35,0.000_05];
+const GAS_036: [f64; 21] = [
+    0.946_067_05, // Methane
+    0.001_781_68, // Nitrogen
+    0.011_888_57, // Carbon dioxide
+    0.024_793_71, // Ethane
+    0.004_593_08, // Propane
+    0.000_944_74, // Isobutane
+    0.001_055_51, // n-Butane
+    0.000_870_94, // Isopentane
+    0.000_610_14, // n-Pentane
+    0.001_919_96, // Hexane
+    0.002_461_45, // Heptane
+    0.002_371_72, // Octane
+    0.000_606_91, // Nonane
+    0.000_027_81, // Decane
+    0.0,          // Hydrogen
+    0.000_006_72, // Oxygen
+    0.0,          // Carbon monoxide
+    0.0,          // Water
+    0.0,          // Hydrogen sulfide
+    0.0,          // Helium
+    0.0           // Argon
+];
+
+const GAS_073: [f64; 21] = [
+    0.919_684_8,  // Methane
+    0.010_54,     // Nitrogen
+    0.011_19,     // Carbon dioxide
+    0.045_62,     // Ethane
+    0.008,        // Propane
+    0.000_96,     // Isobutane
+    0.001_58,     // n-Butane
+    0.000_44,     // Isopentane
+    0.000_36,     // n-Pentane
+    0.000_347,    // Hexane
+    0.000_238,    // Heptane
+    0.000_127,    // Octane
+    0.000_033_6,  // Nonane
+    0.000_009_6,  // Decane
+    0.000_46,     // Hydrogen
+    0.000_01,     // Oxygen
+    0.0,          // Carbon monoxide
+    0.0,          // Water
+    0.0,          // Hydrogen sulfide
+    0.000_35,     // Helium
+    0.000_05      // Argon
+];
 
 // const GAS_142: [f64; 21] = [
 // 0.823_150_35,0.102_460_63,0.014_761_52,0.044_363_26,0.010_047_84,
@@ -54,6 +116,7 @@ fn test_gas_002_01() {
     aga8_test.d = 1.0;
     aga8_test.pressure_detail();
     aga8_test.properties_detail();
+    println!("p: {}\ncv: {}\ncp: {}\nw: {}", aga8_test.p, aga8_test.cv, aga8_test.cp, aga8_test.w);
     assert!( f64::abs(aga8_test.p  -   1.179_2e3) < 0.1 );
     assert!( f64::abs(aga8_test.cv -  26.484_9)   < 0.000_1 );
     assert!( f64::abs(aga8_test.cp -  41.491_9)   < 0.000_1 );
@@ -69,6 +132,7 @@ fn test_gas_002_02() {
     aga8_test.d = 2.0;
     aga8_test.pressure_detail();
     aga8_test.properties_detail();
+    println!("p: {}\ncv: {}\ncp: {}\nw: {}", aga8_test.p, aga8_test.cv, aga8_test.cp, aga8_test.w);
     assert!( f64::abs(aga8_test.p  -   2.050_6e3) < 0.1 );
     assert!( f64::abs(aga8_test.cv -  29.617_9)   < 0.000_1 );
     assert!( f64::abs(aga8_test.cp -  58.791)     < 0.000_1 );
@@ -85,6 +149,7 @@ fn test_gas_002_03() {
     aga8_test.d = 3.0;
     aga8_test.pressure_detail();
     aga8_test.properties_detail();
+    println!("p: {}\ncv: {}\ncp: {}\nw: {}", aga8_test.p, aga8_test.cv, aga8_test.cp, aga8_test.w);
     assert!( f64::abs(aga8_test.p  -   2.808_8e3)  < 0.1 );
     assert!( f64::abs(aga8_test.cv -  32.196)      < 0.000_1 );
     assert!( f64::abs(aga8_test.cp -  84.340_1)    < 0.000_1 );
@@ -100,19 +165,12 @@ fn test_gas_002_04() {
     aga8_test.d = 4.0;
     aga8_test.pressure_detail();
     aga8_test.properties_detail();
+    println!("p: {}\ncv: {}\ncp: {}\nw: {}", aga8_test.p, aga8_test.cv, aga8_test.cp, aga8_test.w);
     assert!( f64::abs(aga8_test.p  -    3.422_7e3)  < 0.1 );
     assert!( f64::abs(aga8_test.cv -   34.397_8)    < 0.000_1 );
     assert!( f64::abs(aga8_test.cp -  126.207)      < 0.000_1 );
     assert!( f64::abs(aga8_test.w  -  266.393_3)    < 0.000_1 );
 }
-#[test]
-fn test_gas_002_05() {
-    let x = GAS_002;
-    let t = 181.681;
-    let p = 40_000.0;
-
-    let _z = aga8_2017::aga8_2017(x, p, t, 2);
-    }
 
 #[test]
 fn test_gas_012_01() {
@@ -123,27 +181,60 @@ fn test_gas_012_01() {
     aga8_test.d = 3.54;
     aga8_test.pressure_detail();
     aga8_test.properties_detail();
+    println!("p: {}\ncv: {}\ncp: {}\nw: {}", aga8_test.p, aga8_test.cv, aga8_test.cp, aga8_test.w);
     assert!( f64::abs(aga8_test.p  -    5.576_5e3)  < 0.1 );
     assert!( f64::abs(aga8_test.cv -   28.202)      < 0.000_1 );
     assert!( f64::abs(aga8_test.cp -   50.828)      < 0.000_1 );
     assert!( f64::abs(aga8_test.w  -  366.9383)     < 0.000_1 );
 }
 
-// #[test]
-// fn test_gas_073_01() {
-//     let mut aga8_test: AGA8Detail = AGA8Detail::default();
-//     aga8_test.setup();
-//     aga8_test.x = GAS_073;
-//     aga8_test.t = 304.29;
-//     aga8_test.d = 2.46;
-//     aga8_test.pressure_detail();
-//     aga8_test.properties_detail();
-//     //assert!( f64::abs(aga8_test.p  -    7.586e3)  < 0.1 );
-//     assert_eq!(aga8_test.p, 5.519_4e3);
-//     assert!( f64::abs(aga8_test.cv -   29.2645)  < 0.000_1 );
-//     assert!( f64::abs(aga8_test.cp -  45.6637)  < 0.000_1 );
-//     assert!( f64::abs(aga8_test.w  -  371.1898)  < 0.000_1 );
-// }
+#[test]
+fn test_gas_012_02() {
+    let mut aga8_test: AGA8Detail = AGA8Detail::default();
+    aga8_test.setup();
+    aga8_test.x = GAS_012;
+    aga8_test.t = 223.018;
+    aga8_test.d = 5.9;
+    aga8_test.pressure_detail();
+    aga8_test.properties_detail();
+    println!("p: {}\ncv: {}\ncp: {}\nw: {}", aga8_test.p, aga8_test.cv, aga8_test.cp, aga8_test.w);
+    assert!( f64::abs(aga8_test.p  -    6.780_5e3)  < 0.1 );
+    assert!( f64::abs(aga8_test.cv -   30.046_9)    < 0.000_1 );
+    assert!( f64::abs(aga8_test.cp -   80.775_1)    < 0.000_1 );
+    assert!( f64::abs(aga8_test.w  -  332.596_5)    < 0.000_1 );
+}
+
+#[test]
+fn test_gas_036_01() {
+    let mut aga8_test: AGA8Detail = AGA8Detail::default();
+    aga8_test.setup();
+    aga8_test.x = GAS_036;
+    aga8_test.t = 192.482;
+    aga8_test.d = 4.8;
+    aga8_test.pressure_detail();
+    aga8_test.properties_detail();
+    println!("p: {}\ncv: {}\ncp: {}\nw: {}", aga8_test.p, aga8_test.cv, aga8_test.cp, aga8_test.w);
+    assert!( f64::abs(aga8_test.p  -    4.113_7e3)  < 0.1 );
+    assert!( f64::abs(aga8_test.cv -   34.672_3)    < 0.000_1 );
+    assert!( f64::abs(aga8_test.cp -  146.979_6)    < 0.000_1 );
+    assert!( f64::abs(aga8_test.w  -  264.847_6)    < 0.000_1 );
+}
+
+#[test]
+fn test_gas_073_01() {
+    let mut aga8_test: AGA8Detail = AGA8Detail::default();
+    aga8_test.setup();
+    aga8_test.x = GAS_073;
+    aga8_test.t = 259.1;
+    aga8_test.d = 3.04;
+    aga8_test.pressure_detail();
+    aga8_test.properties_detail();
+    println!("p: {}\ncv: {}\ncp: {}\nw: {}", aga8_test.p, aga8_test.cv, aga8_test.cp, aga8_test.w);
+    assert!( f64::abs(aga8_test.p  -    5.334_3e3)  < 0.1 );
+    assert!( f64::abs(aga8_test.cv -   29.718_8)    < 0.000_1 );
+    assert!( f64::abs(aga8_test.cp -   49.742_7)    < 0.000_1 );
+    assert!( f64::abs(aga8_test.w  -  366.034)      < 0.000_1 );
+}
 
 // #[test]
 // fn test_gas_073_02() {
