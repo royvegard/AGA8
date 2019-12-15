@@ -9,9 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: cd
-      run: cd AGA8CODE/RUST
     - name: Build
       run: cargo build --verbose
+      working-directory: ./AGA8CODE/RUST
     - name: Run tests
       run: cargo test --verbose
+      working-directory: ./AGA8CODE/RUST
