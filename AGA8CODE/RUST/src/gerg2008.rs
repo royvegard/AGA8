@@ -4266,7 +4266,7 @@ impl Gerg2008 {
 
                         // If requested, check to see if point is possibly 2-phase
                         if iflag > 0 {
-                            if (self.properties() <= 0.0
+                            if (self.properties(-1.0) <= 0.0
                                 || self.dp_dd <= 0.0
                                 || self.d2p_dtd <= 0.0)
                                 || (self.cv <= 0.0 || self.cp <= 0.0 || self.w <= 0.0)
@@ -4287,8 +4287,12 @@ impl Gerg2008 {
         self.d = self.p / RGERG / self.t;
     }
 
-    pub fn properties(&mut self) -> f64 {
-        self.molarmass();
+    pub fn properties(&mut self, mm: f64) -> f64 {
+        if mm > 0.0 {
+            self.mm = mm;
+        } else {
+            self.molarmass();
+        }
         self.alpha0();
         self.alphar(1);
 

@@ -29,7 +29,7 @@ fn main() {
 
     gerg_test.density(0);
 
-    gerg_test.properties();
+    gerg_test.properties(-1.0);
 
     println!("Outputs-----");
     println!(

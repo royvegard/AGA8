@@ -20,7 +20,7 @@ fn gerg_demo_example() {
     gerg_test.z = 0.0;
 
     gerg_test.density(0);
-    gerg_test.properties();
+    gerg_test.properties(-1.0);
 
     assert!(f64::abs(gerg_test.d - 12.798_286_260_820_62) < 1.0e-10);
     assert!(f64::abs(gerg_test.mm - 20.542_744_501_6) < 1.0e-10);

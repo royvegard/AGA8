@@ -247,7 +247,7 @@ pub unsafe extern "C" fn gerg_2008(
     gerg_test.t = temperature;
     gerg_test.p = pressure;
     gerg_test.density(0);
-    gerg_test.properties();
+    gerg_test.properties(-1.0);
 
     Properties {
         d: gerg_test.d, // Molar concentration [mol/l]
@@ -403,8 +403,8 @@ pub unsafe extern "C" fn gerg_calculate_density(ptr: *mut Gerg2008) {
 /// # Safety
 ///
 #[no_mangle]
-pub unsafe extern "C" fn gerg_calculate_properties(ptr: *mut Gerg2008) {
+pub unsafe extern "C" fn gerg_calculate_properties(ptr: *mut Gerg2008, mw: f64) {
     assert!(!ptr.is_null());
     let gerg = &mut *ptr;
-    gerg.properties();
+    gerg.properties(mw);
 }
