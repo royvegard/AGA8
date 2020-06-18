@@ -8,3 +8,8 @@ matrix:
     name: "C++ version"
     before_script: cd AGA8CODE/C && mkdir -p build && cd build
     script: cmake .. && cmake --build . && ctest --output-on-failure
+
+  - language: fortran
+    name: "Fortran version"
+    before_script: cd AGA8CODE/FORTRAN && mkdir -p build && cd build
+    script: cmake .. && cmake --build .
