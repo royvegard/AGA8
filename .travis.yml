@@ -11,5 +11,6 @@ matrix:
 
   - language: fortran
     name: "Fortran version"
+    before_install: sudo apt-get install gfortran
     before_script: cd AGA8CODE/FORTRAN && mkdir -p build && cd build
     script: cmake .. && cmake --build .
