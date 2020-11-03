@@ -109,8 +109,6 @@ c  mole percent CO2, relative density, and volumetric heating value (MJ/m^3) at 
       if (ierr.ne.0) write (*,*) '***Error number***: ',ierr
       write (*,*) 'Molar density [mol/l]:             ',SNGL(D)
 
-
-      pause
       end
 
 

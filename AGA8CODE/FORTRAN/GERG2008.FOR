@@ -74,7 +74,6 @@ c  For T and P inputs, the DensityGERG routine must be called first to get D.
       write (*,*) 'Joule-Thomson coefficient [K/kPa]: ',SNGL(JT)
       write (*,*) 'Isentropic exponent:               ',SNGL(K)
 
-      pause
       end
 
 c-----------------------------------------------------------------------
@@ -107,7 +106,7 @@ c
 c  Kunz, O., Klimeck, R., Wagner, W., and Jaeschke, M.
 c  The GERG-2004 Wide-Range Equation of State for Natural Gases and Other Mixtures
 c  GERG Technical Monograph 15
-c  Fortschr.-Ber. VDI, Reihe 6, Nr. 557, VDI Verlag, Düsseldorf, 2007.
+c  Fortschr.-Ber. VDI, Reihe 6, Nr. 557, VDI Verlag, Dï¿½sseldorf, 2007.
 c  http://www.gerg.eu/public/uploads/files/publications/technical_monographs/tm15_04.pdf
 c
 c  Subroutines contained here for property calculations:

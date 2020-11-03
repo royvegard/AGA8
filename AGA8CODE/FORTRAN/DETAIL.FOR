@@ -73,7 +73,6 @@ c  For T and P inputs, the DensityDetail routine must be called first to get D.
       write (*,*) 'Joule-Thomson coefficient [K/kPa]: ',SNGL(JT)
       write (*,*) 'Isentropic exponent:               ',SNGL(K)
 
-      pause
       end
 
 c-----------------------------------------------------------------------
