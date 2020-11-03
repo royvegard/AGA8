@@ -9,7 +9,7 @@ matrix:
     before_script: cd AGA8CODE/C && mkdir -p build && cd build
     script: cmake .. && cmake --build . && ctest --output-on-failure
 
-  - language: fortran
+  - language: generic
     name: "Fortran version"
     before_install: sudo apt-get install gfortran
     before_script: cd AGA8CODE/FORTRAN && mkdir -p build && cd build
